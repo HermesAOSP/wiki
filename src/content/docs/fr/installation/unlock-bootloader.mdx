@@ -1,0 +1,34 @@
+---
+title: Déverrouiller le bootloader
+description: Étape préalable obligatoire sur la plupart des appareils.
+sidebar:
+  order: 2
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+<Aside type="caution" title="Procédure propre à chaque constructeur">
+Le déverrouillage varie selon la marque. Consulte la page de ton [appareil](/fr/devices/) pour les particularités.
+</Aside>
+
+<Steps>
+
+1. Active les **options pour les développeurs** : *Paramètres → À propos → toucher 7 fois « Numéro de build »*.
+
+2. Dans les options pour les développeurs, active **Déverrouillage OEM** et **Débogage USB**.
+
+3. Redémarre en mode bootloader :
+
+   ```bash
+   adb reboot bootloader
+   ```
+
+4. Déverrouille le bootloader :
+
+   ```bash
+   fastboot flashing unlock
+   ```
+
+5. Confirme sur l'écran de l'appareil. Il redémarre et **efface ses données**.
+
+</Steps>

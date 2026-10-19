@@ -1,0 +1,58 @@
+---
+title: Compiler la ROM
+description: Construire Euodos depuis les sources.
+sidebar:
+  order: 3
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+:::caution[Exemple générique]
+Les commandes ci-dessous suivent la méthode LineageOS. Remplace les URLs et branches par celles d'Euodos.
+:::
+
+## Prérequis
+
+- Linux 64 bits (Ubuntu / Debian recommandé), **au moins 16 Go de RAM** et ~300 Go d'espace libre.
+- Les paquets de build Android (voir la documentation de LineageOS).
+- L'outil `repo`.
+
+## Récupérer les sources
+
+<Steps>
+
+1. Initialise le dépôt :
+
+   ```bash
+   mkdir -p ~/android/euodos && cd ~/android/euodos
+   repo init -u https://gerrit.example.org/euodos-manifest -b main
+   ```
+
+2. Synchronise :
+
+   ```bash
+   repo sync -c -j$(nproc)
+   ```
+
+3. Prépare l'environnement et choisis l'appareil :
+
+   ```bash
+   source build/envsetup.sh
+   breakfast example1
+   ```
+
+4. Lance la compilation :
+
+   ```bash
+   brunch example1
+   ```
+
+</Steps>
+
+<Aside type="note">
+Le zip final se trouve dans `out/target/product/example1/`.
+</Aside>
+
+## Compilation incrémentale
+
+Après une modification mineure, relance simplement `brunch example1` : seuls les changements sont recompilés.

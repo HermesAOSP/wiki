@@ -1,0 +1,126 @@
+---
+title: Contribuer avec Gerrit
+description: Proposer un changement (code ou documentation) via Gerrit.
+sidebar:
+  order: 1
+---
+
+import { Steps, Aside, FileTree } from '@astrojs/starlight/components';
+
+Tout le code d'Euodos **et ce wiki** sont versionnés dans Git et relus avec [Gerrit](https://www.gerritcodereview.com). Il n'y a pas de *pull request* : chaque changement est un **patch set** soumis à relecture.
+
+<Aside type="caution" title="Hôte à renseigner">
+Les adresses ci-dessous utilisent `gerrit.example.org` et `<utilisateur>` comme valeurs fictives.
+</Aside>
+
+## Mise en place (une seule fois)
+
+<Steps>
+
+1. Crée un compte sur Gerrit et ajoute ta **clé SSH** dans *Settings → SSH keys*.
+
+2. Clone le dépôt :
+
+   ```bash
+   git clone "ssh://<utilisateur>@gerrit.example.org:29418/euodos-wiki"
+   cd euodos-wiki
+   ```
+
+3. Installe le hook `commit-msg`, qui ajoute automatiquement un `Change-Id` à chaque commit :
+
+   ```bash
+   gitdir=$(git rev-parse --git-dir)
+   scp -p -P 29418 <utilisateur>@gerrit.example.org:hooks/commit-msg "${gitdir}/hooks/"
+   ```
+
+4. *(Optionnel)* Installe [`git-review`](https://docs.opendev.org/opendev/git-review/latest/) pour simplifier l'envoi.
+
+</Steps>
+
+## Proposer un changement
+
+<Steps>
+
+1. Crée une branche locale depuis `main` :
+
+   ```bash
+   git checkout -b ma-modif origin/main
+   ```
+
+2. Modifie les fichiers, puis commite :
+
+   ```bash
+   git commit -a
+   ```
+
+   Respecte les [conventions de commit](/fr/development/commit-conventions/).
+
+3. Envoie le changement en relecture :
+
+   ```bash
+   git push origin HEAD:refs/for/main
+   # ou, avec git-review :
+   git review
+   ```
+
+4. Gerrit affiche l'URL du changement. Les relecteurs le commentent et votent.
+
+5. Pour corriger après une remarque, **amende** le commit et renvoie-le :
+
+   ```bash
+   git commit -a --amend --no-edit
+   git push origin HEAD:refs/for/main
+   ```
+
+   Le même `Change-Id` crée un **nouveau patch set** sur le même changement.
+
+</Steps>
+
+## Relecture et fusion
+
+| Vote | Signification |
+|---|---|
+| `Code-Review +2` | Approuvé par un mainteneur |
+| `Code-Review +1` | Semble correct, sans autorité de fusion |
+| `Code-Review -1` | Des modifications sont demandées |
+| `Verified +1` | La CI (build du wiki) a réussi |
+
+Un mainteneur clique sur **Submit** quand le changement a `Code-Review +2` et `Verified +1`.
+
+## Structure du dépôt du wiki
+
+<FileTree>
+
+- src
+  - content
+    - docs
+      - overview
+      - installation
+      - devices
+      - usage
+      - development
+      - reference
+      - brand
+      - fr
+  - styles
+    - custom.css
+  - assets
+- astro.config.mjs
+- package.json
+
+</FileTree>
+
+Les pages anglaises sont à la racine de `docs/`, les traductions françaises dans `docs/fr/`, avec la même arborescence.
+
+## Prévisualiser le wiki
+
+```bash
+npm install
+npm run dev
+```
+
+Le site est alors disponible sur `http://localhost:4321`. Vérifie le build avant d'envoyer :
+
+```bash
+npm run build
+```

@@ -1,0 +1,51 @@
+---
+title: Euodos
+description: Documentation d'Euodos, une ROM Android basée sur LineageOS.
+template: splash
+hero:
+  tagline: La ROM Android basée sur LineageOS. Installe-la, utilise-la, compile-la.
+  image:
+    light: ../../../assets/hero-light.png
+    dark: ../../../assets/hero-dark.png
+    alt: Logo Euodos
+  actions:
+    - text: Installer Euodos
+      link: /fr/installation/requirements/
+      icon: right-arrow
+    - text: Appareils supportés
+      link: /fr/devices/
+      variant: secondary
+    - text: Contribuer
+      link: /fr/development/contributing/
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+:::caution[Wiki de démonstration]
+Ce wiki est une **maquette**. Les appareils, versions et liens sont des exemples à remplacer par les vraies informations.
+:::
+
+## Par où commencer ?
+
+<CardGrid stagger>
+	<Card title="Je découvre" icon="open-book">
+		Lis la [présentation](/fr/overview/about/) et la liste des [fonctionnalités](/fr/overview/features/).
+	</Card>
+	<Card title="Je veux installer" icon="rocket">
+		Vérifie les [prérequis](/fr/installation/requirements/), puis suis le [guide de flash](/fr/installation/flashing/).
+	</Card>
+	<Card title="J'ai un problème" icon="warning">
+		Consulte le [dépannage](/fr/installation/troubleshooting/) et la [FAQ](/fr/usage/faq/).
+	</Card>
+	<Card title="Je veux contribuer" icon="pencil">
+		Découvre le [workflow Gerrit](/fr/development/contributing/) et comment [compiler la ROM](/fr/development/building/).
+	</Card>
+</CardGrid>
+
+## Accès rapide
+
+<LinkCard title="Appareils supportés" description="Statut et notes de chaque appareil." href="/fr/devices/" />
+<LinkCard title="Journal des modifications" description="Les nouveautés de chaque version." href="/fr/reference/changelog/" />
+<LinkCard title="Charte graphique" description="Logos, couleurs et typographie." href="/fr/brand/brand-guidelines/" />

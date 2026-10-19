@@ -1,0 +1,25 @@
+---
+title: Appareils supportés
+description: Liste des appareils pris en charge par Euodos.
+sidebar:
+  order: 1
+---
+
+import { LinkCard } from '@astrojs/starlight/components';
+
+:::caution[Appareils fictifs]
+Les appareils ci-dessous sont des **exemples** pour montrer la structure du wiki.
+:::
+
+| Appareil | Nom de code | Statut | Android |
+|---|---|---|---|
+| [Example Phone 1](/fr/devices/example-phone-1/) | `example1` | Officiel | 15 |
+| [Example Phone 2](/fr/devices/example-phone-2/) | `example2` | Expérimental | 15 |
+
+## Statuts
+
+- **Officiel** : maintenu, builds stables régulières.
+- **Expérimental** : fonctionne avec des limitations connues.
+- **Abandonné** : plus de mises à jour.
+
+<LinkCard title="Ajouter un appareil" description="Comment porter Euodos sur un nouvel appareil." href="/fr/development/porting-a-device/" />

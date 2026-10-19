@@ -1,0 +1,29 @@
+---
+title: Fonctionnalités
+description: Ce qu'Euodos apporte par rapport à LineageOS.
+sidebar:
+  order: 2
+---
+
+import { Badge, Card, CardGrid } from '@astrojs/starlight/components';
+
+Statut des fonctionnalités : <Badge text="Stable" variant="success" /> <Badge text="Bêta" variant="caution" /> <Badge text="Prévu" variant="note" />
+
+<CardGrid>
+	<Card title="Personnalisation" icon="star">
+		Thèmes, icônes, barre d'état et gestes configurables. <Badge text="Stable" variant="success" />
+	</Card>
+	<Card title="Confidentialité" icon="approve-check">
+		Gestion fine des permissions et pas de télémétrie par défaut. <Badge text="Stable" variant="success" />
+	</Card>
+	<Card title="Performances" icon="rocket">
+		Profils d'énergie et réglages noyau. <Badge text="Bêta" variant="caution" />
+	</Card>
+	<Card title="Sauvegarde" icon="download">
+		Sauvegarde et restauration intégrées. <Badge text="Prévu" variant="note" />
+	</Card>
+</CardGrid>
+
+:::tip
+Cette page est un exemple : remplace les cartes par la vraie liste de tes fonctionnalités.
+:::

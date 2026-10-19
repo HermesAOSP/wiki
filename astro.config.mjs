@@ -14,6 +14,11 @@ export default defineConfig({
 				alt: 'Euodos logo',
 			},
 			favicon: '/favicon.png',
+			defaultLocale: 'root',
+			locales: {
+				root: { label: 'English', lang: 'en' },
+				fr: { label: 'Français', lang: 'fr' },
+			},
 			customCss: ['./src/styles/custom.css'],
 			social: [
 				// TODO: replace with the repository URL (Gerrit / mirror)
@@ -23,13 +28,13 @@ export default defineConfig({
 			// editLink: { baseUrl: 'https://<gerrit>/plugins/gitiles/euodos-wiki/+/refs/heads/main/' },
 			lastUpdated: true,
 			sidebar: [
-				{ label: 'Overview', items: [{ autogenerate: { directory: 'overview' } }] },
-				{ label: 'Installation', items: [{ autogenerate: { directory: 'installation' } }] },
-				{ label: 'Devices', items: [{ autogenerate: { directory: 'devices' } }] },
-				{ label: 'Usage', items: [{ autogenerate: { directory: 'usage' } }] },
-				{ label: 'Development', items: [{ autogenerate: { directory: 'development' } }] },
-				{ label: 'Reference', items: [{ autogenerate: { directory: 'reference' } }] },
-				{ label: 'Brand', items: [{ autogenerate: { directory: 'brand' } }] },
+				{ label: 'Overview', translations: { fr: 'Présentation' }, items: [{ autogenerate: { directory: 'overview' } }] },
+				{ label: 'Installation', translations: { fr: 'Installation' }, items: [{ autogenerate: { directory: 'installation' } }] },
+				{ label: 'Devices', translations: { fr: 'Appareils' }, items: [{ autogenerate: { directory: 'devices' } }] },
+				{ label: 'Usage', translations: { fr: 'Utilisation' }, items: [{ autogenerate: { directory: 'usage' } }] },
+				{ label: 'Development', translations: { fr: 'Développement' }, items: [{ autogenerate: { directory: 'development' } }] },
+				{ label: 'Reference', translations: { fr: 'Référence' }, items: [{ autogenerate: { directory: 'reference' } }] },
+				{ label: 'Brand', translations: { fr: 'Marque' }, items: [{ autogenerate: { directory: 'brand' } }] },
 			],
 		}),
 	],
