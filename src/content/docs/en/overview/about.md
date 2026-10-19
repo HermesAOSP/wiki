@@ -19,7 +19,7 @@ Euodos is a custom Android ROM **based on [LineageOS](https://lineageos.org)**. 
 |---|---|---|
 | Base | AOSP | LineageOS |
 | Tracked branch | `lineage-xx.x` | Same branch, with extra patches |
-| Devices | Official list | Subset (see [Devices](/devices/)) |
+| Devices | Official list | Subset (see [Devices](/en/devices/)) |
 
 :::note
 Euodos is neither affiliated with nor endorsed by LineageOS. All names and trademarks belong to their respective owners.

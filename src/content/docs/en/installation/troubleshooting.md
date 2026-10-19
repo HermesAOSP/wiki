@@ -36,4 +36,4 @@ The download is probably corrupted. Compare the `sha256` sum with the published 
 
 ## Still stuck?
 
-Open a ticket following the [bug reporting guide](/development/reporting-bugs/), and include logs.
+Open a ticket following the [bug reporting guide](/en/development/reporting-bugs/), and include logs.

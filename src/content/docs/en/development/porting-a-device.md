@@ -22,4 +22,4 @@ To propose a new device you generally need:
 
 ## Documentation
 
-Copy the page of an existing device (for example [Example Phone 1](/devices/example-phone-1/)) and fill it in. Submit it through [Gerrit](/development/contributing/).
+Copy the page of an existing device (for example [Example Phone 1](/en/devices/example-phone-1/)) and fill it in. Submit it through [Gerrit](/en/development/contributing/).

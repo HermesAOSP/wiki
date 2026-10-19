@@ -53,7 +53,7 @@ The addresses below use `gerrit.example.org` and `<username>` as placeholder val
    git commit -a
    ```
 
-   Follow the [commit conventions](/development/commit-conventions/).
+   Follow the [commit conventions](/en/development/commit-conventions/).
 
 3. Send the change for review:
 
@@ -94,13 +94,17 @@ A maintainer clicks **Submit** once the change has `Code-Review +2` and `Verifie
 - src
   - content
     - docs
-      - overview
-      - installation
-      - devices
-      - usage
-      - development
-      - reference
-      - brand
+      - en
+        - overview
+        - installation
+        - devices
+        - usage
+        - development
+        - reference
+        - brand
+      - fr
+        - overview
+        - …
   - styles
     - custom.css
   - assets
@@ -108,6 +112,8 @@ A maintainer clicks **Submit** once the change has `Code-Review +2` and `Verifie
 - package.json
 
 </FileTree>
+
+English pages live in `docs/en/`, French translations in `docs/fr/`, with the same tree.
 
 ## Preview the wiki
 

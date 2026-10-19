@@ -4,6 +4,9 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
+	redirects: {
+		'/': '/en/',
+	},
 	integrations: [
 		starlight({
 			title: 'Euodos',
@@ -14,9 +17,9 @@ export default defineConfig({
 				alt: 'Euodos logo',
 			},
 			favicon: '/favicon.png',
-			defaultLocale: 'root',
+			defaultLocale: 'en',
 			locales: {
-				root: { label: 'English', lang: 'en' },
+				en: { label: 'English', lang: 'en' },
 				fr: { label: 'Français', lang: 'fr' },
 			},
 			customCss: ['./src/styles/custom.css'],

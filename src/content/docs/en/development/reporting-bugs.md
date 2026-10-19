@@ -7,7 +7,7 @@ sidebar:
 
 ## Before reporting
 
-- Check the [FAQ](/usage/faq/) and [troubleshooting](/installation/troubleshooting/).
+- Check the [FAQ](/en/usage/faq/) and [troubleshooting](/en/installation/troubleshooting/).
 - Update to the latest version.
 
 ## Information to include

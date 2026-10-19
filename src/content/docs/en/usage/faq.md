@@ -29,6 +29,6 @@ Often, yes. Check your manufacturer's terms before you start.
 <details>
 <summary>How do I report a bug?</summary>
 
-Follow the [Reporting bugs](/development/reporting-bugs/) guide.
+Follow the [Reporting bugs](/en/development/reporting-bugs/) guide.
 
 </details>

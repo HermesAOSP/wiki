@@ -23,4 +23,4 @@ Euodos ships without a proprietary app store. You can install [F-Droid](https://
 
 ## Updates
 
-Enable update notifications to be told about new releases: see [Updating](/installation/updating/).
+Enable update notifications to be told about new releases: see [Updating](/en/installation/updating/).

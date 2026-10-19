@@ -16,5 +16,5 @@ sidebar:
 - [x] Online documentation
 
 :::note
-Dates are not guaranteed. Follow the [changelog](/reference/changelog/) for actual releases.
+Dates are not guaranteed. Follow the [changelog](/en/reference/changelog/) for actual releases.
 :::
