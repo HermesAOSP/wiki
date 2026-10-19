@@ -1,0 +1,34 @@
+---
+title: Unlock the bootloader
+description: A required first step on most devices.
+sidebar:
+  order: 2
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+<Aside type="caution" title="Manufacturer-specific procedure">
+Unlocking varies by brand. Check your [device](/devices/) page for specifics.
+</Aside>
+
+<Steps>
+
+1. Enable **Developer options**: *Settings → About → tap "Build number" 7 times*.
+
+2. In Developer options, enable **OEM unlocking** and **USB debugging**.
+
+3. Reboot into the bootloader:
+
+   ```bash
+   adb reboot bootloader
+   ```
+
+4. Unlock the bootloader:
+
+   ```bash
+   fastboot flashing unlock
+   ```
+
+5. Confirm on the device screen. It reboots and **wipes its data**.
+
+</Steps>

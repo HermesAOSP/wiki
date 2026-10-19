@@ -1,0 +1,53 @@
+/* Euodos brand: Night #102F27, Cold Turkey #D2BBBB, Driftwood Brown #B08A4F */
+@import '@fontsource-variable/google-sans-flex';
+
+:root {
+	--sl-font: 'Google Sans Flex Variable', system-ui, sans-serif;
+	--euodos-night: #102f27;
+	--euodos-cold-turkey: #d2bbbb;
+	--euodos-driftwood: #b08a4f;
+}
+
+/* Dark mode (default): Night background, Cold Turkey text, Driftwood accent */
+:root {
+	--sl-color-white: #ffffff;
+	--sl-color-gray-1: #efe6e6;
+	--sl-color-gray-2: #d2bbbb;
+	--sl-color-gray-3: #a9a09c;
+	--sl-color-gray-4: #6e8077;
+	--sl-color-gray-5: #25493e;
+	--sl-color-gray-6: #163a30;
+	--sl-color-gray-7: #0e2922;
+	--sl-color-black: #102f27;
+
+	--sl-color-accent-low: #2a3e33;
+	--sl-color-accent: #b08a4f;
+	--sl-color-accent-high: #d2bbbb;
+}
+
+/* Light mode: light background, Night text, Night accent */
+:root[data-theme='light'] {
+	--sl-color-white: #102f27;
+	--sl-color-gray-1: #1b3d34;
+	--sl-color-gray-2: #2f4f46;
+	--sl-color-gray-3: #5d746b;
+	--sl-color-gray-4: #8e827d;
+	--sl-color-gray-5: #c9bdb7;
+	--sl-color-gray-6: #ede4e0;
+	--sl-color-gray-7: #f6f0ee;
+	--sl-color-black: #ffffff;
+
+	--sl-color-accent-low: #ebdddd;
+	--sl-color-accent: #102f27;
+	--sl-color-accent-high: #8a6a33;
+}
+
+/* Driftwood rule under the header, as in the brand guide */
+header.header {
+	border-bottom: 3px solid var(--euodos-driftwood);
+}
+
+.site-title img {
+	height: 1.6rem;
+	width: auto;
+}

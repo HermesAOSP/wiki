@@ -1,0 +1,46 @@
+---
+title: Example Phone 1
+description: Page for the Example Phone 1 device (example1).
+---
+
+import { Badge } from '@astrojs/starlight/components';
+
+<Badge text="Official" variant="success" /> <Badge text="Stable" variant="tip" />
+
+## Specifications
+
+| | |
+|---|---|
+| Manufacturer | Example Corp |
+| Codename | `example1` |
+| SoC | Example Chipset |
+| Memory | 8 GB |
+| Display | 6.1″ OLED |
+| Maintainer | To be filled in |
+
+## What works
+
+| Component | State |
+|---|---|
+| Wi-Fi / Bluetooth | ✅ |
+| Camera | ✅ |
+| Fingerprint | ✅ |
+| NFC | ⚠️ Partial |
+| VoLTE | ❌ |
+
+## Installation notes
+
+- The bootloader unlocks with `fastboot flashing unlock`.
+- Recovery: hold **Volume down + Power** at boot.
+- Partition to flash: `vendor_boot`.
+
+Then follow the [installation guide](/installation/flashing/).
+
+## Downloads
+
+- Latest stable: *(link to add)*
+- Recovery: *(link to add)*
+
+## Known issues
+
+- NFC may need a reboot after the device wakes from sleep.

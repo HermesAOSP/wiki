@@ -1,0 +1,58 @@
+---
+title: Building the ROM
+description: Build Euodos from source.
+sidebar:
+  order: 3
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+:::caution[Generic example]
+The commands below follow the LineageOS method. Replace URLs and branches with Euodos's own.
+:::
+
+## Requirements
+
+- 64-bit Linux (Ubuntu / Debian recommended), **at least 16 GB of RAM** and ~300 GB of free disk space.
+- The Android build packages (see the LineageOS documentation).
+- The `repo` tool.
+
+## Get the sources
+
+<Steps>
+
+1. Initialise the checkout:
+
+   ```bash
+   mkdir -p ~/android/euodos && cd ~/android/euodos
+   repo init -u https://gerrit.example.org/euodos-manifest -b main
+   ```
+
+2. Sync:
+
+   ```bash
+   repo sync -c -j$(nproc)
+   ```
+
+3. Set up the environment and pick the device:
+
+   ```bash
+   source build/envsetup.sh
+   breakfast example1
+   ```
+
+4. Start the build:
+
+   ```bash
+   brunch example1
+   ```
+
+</Steps>
+
+<Aside type="note">
+The final zip is in `out/target/product/example1/`.
+</Aside>
+
+## Incremental builds
+
+After a small change, just run `brunch example1` again: only what changed is rebuilt.

@@ -1,0 +1,59 @@
+---
+title: Requirements
+description: What to prepare before installing Euodos.
+sidebar:
+  order: 1
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+:::danger[Back up first]
+Installation **erases all data** on the device. Back up your photos, messages and apps before you start.
+:::
+
+## Hardware and software
+
+- A [supported device](/devices/) with at least 80% battery.
+- A good-quality USB cable.
+- A computer with `adb` and `fastboot` (the *platform-tools* package).
+
+## Install adb and fastboot
+
+<Tabs syncKey="os">
+	<TabItem label="Linux">
+		```bash
+		# Fedora
+		sudo dnf install android-tools
+		# Debian / Ubuntu
+		sudo apt install adb fastboot
+		```
+	</TabItem>
+	<TabItem label="macOS">
+		```bash
+		brew install android-platform-tools
+		```
+	</TabItem>
+	<TabItem label="Windows">
+		Download the official Android *platform-tools* and extract the archive.
+		Then open PowerShell in that folder.
+	</TabItem>
+</Tabs>
+
+Check the installation:
+
+```bash
+adb version
+fastboot --version
+```
+
+## Download the files
+
+For your device you need:
+
+1. the Euodos **recovery** image;
+2. the ROM **zip**;
+3. the checksum (`sha256`) to verify your downloads.
+
+```bash
+sha256sum euodos-*.zip
+```

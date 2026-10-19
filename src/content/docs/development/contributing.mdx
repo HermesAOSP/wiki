@@ -1,0 +1,123 @@
+---
+title: Contributing with Gerrit
+description: Propose a change (code or documentation) through Gerrit.
+sidebar:
+  order: 1
+---
+
+import { Steps, Aside, FileTree } from '@astrojs/starlight/components';
+
+All Euodos code **and this wiki** are versioned in Git and reviewed with [Gerrit](https://www.gerritcodereview.com). There are no *pull requests*: every change is a **patch set** submitted for review.
+
+<Aside type="caution" title="Host to fill in">
+The addresses below use `gerrit.example.org` and `<username>` as placeholder values.
+</Aside>
+
+## Setup (once)
+
+<Steps>
+
+1. Create a Gerrit account and add your **SSH key** under *Settings → SSH keys*.
+
+2. Clone the repository:
+
+   ```bash
+   git clone "ssh://<username>@gerrit.example.org:29418/euodos-wiki"
+   cd euodos-wiki
+   ```
+
+3. Install the `commit-msg` hook, which automatically adds a `Change-Id` to every commit:
+
+   ```bash
+   gitdir=$(git rev-parse --git-dir)
+   scp -p -P 29418 <username>@gerrit.example.org:hooks/commit-msg "${gitdir}/hooks/"
+   ```
+
+4. *(Optional)* Install [`git-review`](https://docs.opendev.org/opendev/git-review/latest/) to simplify pushing.
+
+</Steps>
+
+## Propose a change
+
+<Steps>
+
+1. Create a local branch from `main`:
+
+   ```bash
+   git checkout -b my-change origin/main
+   ```
+
+2. Edit the files, then commit:
+
+   ```bash
+   git commit -a
+   ```
+
+   Follow the [commit conventions](/development/commit-conventions/).
+
+3. Send the change for review:
+
+   ```bash
+   git push origin HEAD:refs/for/main
+   # or, with git-review:
+   git review
+   ```
+
+4. Gerrit prints the change URL. Reviewers comment on it and vote.
+
+5. To address feedback, **amend** the commit and push again:
+
+   ```bash
+   git commit -a --amend --no-edit
+   git push origin HEAD:refs/for/main
+   ```
+
+   The same `Change-Id` creates a **new patch set** on the same change.
+
+</Steps>
+
+## Review and merge
+
+| Vote | Meaning |
+|---|---|
+| `Code-Review +2` | Approved by a maintainer |
+| `Code-Review +1` | Looks good, but cannot merge |
+| `Code-Review -1` | Changes requested |
+| `Verified +1` | CI (wiki build) passed |
+
+A maintainer clicks **Submit** once the change has `Code-Review +2` and `Verified +1`.
+
+## Wiki repository layout
+
+<FileTree>
+
+- src
+  - content
+    - docs
+      - overview
+      - installation
+      - devices
+      - usage
+      - development
+      - reference
+      - brand
+  - styles
+    - custom.css
+  - assets
+- astro.config.mjs
+- package.json
+
+</FileTree>
+
+## Preview the wiki
+
+```bash
+npm install
+npm run dev
+```
+
+The site is then available at `http://localhost:4321`. Check the build before pushing:
+
+```bash
+npm run build
+```

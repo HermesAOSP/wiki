@@ -1,0 +1,46 @@
+---
+title: Flashing Euodos
+description: Installing the recovery and the ROM.
+sidebar:
+  order: 3
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+This guide assumes the [bootloader is unlocked](/installation/unlock-bootloader/).
+
+<Steps>
+
+1. **Reboot into the bootloader.**
+
+   ```bash
+   adb reboot bootloader
+   ```
+
+2. **Flash the recovery.**
+
+   ```bash title="Example: device with a recovery partition"
+   fastboot flash recovery euodos-recovery.img
+   ```
+
+   <Aside type="note">
+   On some devices you must flash `boot` or `vendor_boot` instead of `recovery`. See the device page.
+   </Aside>
+
+3. **Boot into recovery** using the key combination for your device.
+
+4. **Wipe data**: *Factory reset → Format data / factory reset*.
+
+5. **Install the zip.** In recovery: *Apply update → Apply from ADB*, then on the computer:
+
+   ```bash
+   adb sideload euodos-xx.x-YYYYMMDD-stable-device.zip
+   ```
+
+6. **Reboot**: *Reboot system now*. The first boot can take several minutes.
+
+</Steps>
+
+:::tip[What about Google apps?]
+Euodos does not include Google services. If you want *GApps*, flash them **before** the first boot.
+:::
