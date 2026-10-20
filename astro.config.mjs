@@ -4,6 +4,9 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
+	server: {
+    allowedHosts: ['wiki.euodos.fr'],
+  	},
 	redirects: {
 		'/': '/en/',
 	},
